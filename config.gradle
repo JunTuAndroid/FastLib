@@ -1,0 +1,71 @@
+ext {
+    android = [
+            compileSdkVersion: 27,
+            buildToolsVersion: "26.0.3",
+            minSdkVersion    : 15,
+            targetSdkVersion : 27,
+            versionCode      : 1,
+            versionName      : "0.0.1"
+    ]
+
+
+    version = [
+            androidSupport           : "26.0.1",
+            retrofit                 : "2.3.0",
+            dagger                   : "2.15",
+            butterknife              : "8.8.1",
+            espresso                 : "3.0.1",
+            baseQuickAdapter         : "2.9.34",
+            agentweb                 : "4.0.2",
+            smartRefreshLayout       : "1.0.3",
+            smartRefreshLayout_header: "1.0.3",
+            glide                    : "4.7.1",
+            UIWidget                 : "3.1.1",
+            logger                   : "2.1.1",
+            rxJava                   : "2.1.7",
+            rxAndroid                : "2.0.1",
+            gson                     : "2.8.1",
+            rxlifecycleComponents    : "2.1.0",
+            swipebacklayout          : "1.1.1@aar",
+            flycoTabLayout           : "2.1.2@aar",
+            androideventbus          : "1.0.5.1",
+            easyStatusView           : "v1.0.3",
+            bgaBanner                : "2.1.7@aar",
+            superTextView            : "2.1.5"
+
+    ]
+
+    dependencies = [
+            "design"                       : "com.android.support:design:${version["androidSupport"]}",
+            "appcompat"                    : "com.android.support:appcompat-v7:".concat(version.androidSupport),
+            "recyclerview"                 : "com.android.support:recyclerview-v7:".concat(version.androidSupport),
+            "BaseRecyclerViewAdapterHelper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:".concat(version.baseQuickAdapter),
+            "glide"                        : "com.github.bumptech.glide:glide:".concat(version.glide),
+            "agentweb"                     : "com.just.agentweb:agentweb:".concat(version.agentweb),
+            "agentweb-downLoad"            : "com.just.agentweb:download:4.0.2",
+            "smartRefreshLayout"           : "com.scwang.smartrefresh:SmartRefreshLayout:".concat(version.smartRefreshLayout),
+            "smartRefreshLayoutHeader"     : "com.scwang.smartrefresh:SmartRefreshHeader:".concat(version.smartRefreshLayout),
+            "UIWidget-Core"                : "com.github.AriesHoo.UIWidget:widget-core:".concat(version.UIWidget),
+            "logger"                       : "com.orhanobut:logger:".concat(version.logger),
+            "butterknife"                  : "com.jakewharton:butterknife:".concat(version.butterknife),
+            "rxJava"                       : "io.reactivex.rxjava2:rxjava:".concat(version.rxJava),
+            "rxAndroid"                    : "io.reactivex.rxjava2:rxandroid:".concat(version.rxAndroid),
+            "retrofit"                     : "com.squareup.retrofit2:retrofit:".concat(version.retrofit),
+            "converter-gson"               : "com.squareup.retrofit2:converter-gson:".concat(version.retrofit),
+            "adapter-rxjava2"              : "com.squareup.retrofit2:adapter-rxjava2:".concat(version.retrofit),
+            "logging-interceptor"          : "com.squareup.okhttp3:logging-interceptor:3.8.0",
+            "gson"                         : "com.google.code.gson:gson:".concat(version.gson),
+            "rxlifecycle"                  : "com.trello.rxlifecycle2:rxlifecycle-components:".concat(version.rxlifecycleComponents),
+            "swipebacklayout"              : "cn.bingoogolapple:bga-swipebacklayout:".concat(version.swipebacklayout),
+            "flycoTabLayout"               : "com.flyco.tablayout:FlycoTabLayout_Lib:".concat(version.flycoTabLayout),
+            "androideventbus"              : "org.simple:androideventbus:".concat(version.androideventbus),
+            "bgaBanner"                    : "cn.bingoogolapple:bga-banner:".concat(version.bgaBanner),
+            "superTextView"                : "com.github.lygttpod:SuperTextView:".concat(version.superTextView),
+            "FlycoLabelView"               : "com.flyco.labelview:FlycoLabelView_Lib:1.0.2@aar",
+            "glideCompiler"                : "com.github.bumptech.glide:compiler:".concat(version.glide),
+            "butterknifeCompiler"          : "com.jakewharton:butterknife-compiler:".concat(version.butterknife),
+            "EasyStatusView"               : "com.github.MarnonDev:EasyStatusView:".concat(version.easyStatusView),
+
+    ]
+
+}
