@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'com.neenbedankt.android-apt'
 
 def releaseTime() {
     return new Date().format("yyyy-MM-dd_HH-mm", TimeZone.getTimeZone("GMT+8"))
@@ -9,7 +8,7 @@ def releaseTime() {
 def ext = rootProject.ext
 android {
     compileSdkVersion ext.compileSdkVersion
-    buildToolsVersion ext.buildToolsVersion
+//    buildToolsVersion ext.buildToolsVersion
     defaultConfig {
         applicationId "com.aries.library.fast.demo"
         minSdkVersion ext.minSdkVersion
@@ -17,6 +16,7 @@ android {
         versionCode ext.versionCode
         versionName ext.versionName
         multiDexEnabled true
+        vectorDrawables.useSupportLibrary  true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "BASE_URL", "\"https://api.douban.com/\""
     }
@@ -46,18 +46,18 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-            applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    def outputFile = output.outputFile
-                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        if (variant.buildType.name.equals('release')) {
-                            def fileName = "FastLib_v${defaultConfig.versionName}_${releaseTime()}.apk"
-                            //output.outputFile = new File(outputFile.parent, fileName)
-                            output.outputFile = new File(outputFile.parent, "sample.apk")
-                        }
-                    }
-                }
-            }
+//            applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    def outputFile = output.outputFile
+//                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        if (variant.buildType.name.equals('release')) {
+//                            def fileName = "FastLib_v${defaultConfig.versionName}_${releaseTime()}.apk"
+//                            //output.outputFile = new File(outputFile.parent, fileName)
+////                            output.outputFile = new File(outputFile.parent, "sample.apk")
+//                        }
+//                    }
+//                }
+//            }
         }
     }
 
@@ -69,7 +69,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':library')
+    implementation project(':library')
 
     //设置界面Item库
     //以下库library里使用provided只是编译使用时需根据项目选择相应版本
@@ -94,5 +94,5 @@ dependencies {
     compile 'com.flyco.labelview:FlycoLabelView_Lib:1.0.2@aar'
     compile 'com.just.agentweb:agentweb:3.0.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
-    apt 'com.jakewharton:butterknife-compiler:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

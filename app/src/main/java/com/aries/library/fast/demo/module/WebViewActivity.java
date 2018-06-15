@@ -70,27 +70,21 @@ public class WebViewActivity extends FastWebActivity {
     @Override
     protected void setAgentWeb(AgentWeb mAgentWeb) {
         super.setAgentWeb(mAgentWeb);
-        WebView mWebView = mAgentWeb.getWebCreator().getWebView();
-        mWebView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                WebView.HitTestResult hitTestResult = mWebView.getHitTestResult();
-                if (hitTestResult == null) {
-                    return false;
-                }
-                if (!mIsShowTitle) {
-                    showActionSheet();
-                }
-                LoggerManager.d("onLongClick:hitTestResult-Type:" + hitTestResult.getType() + ";Extra:" + hitTestResult.getExtra());
-                return true;
+        final WebView mWebView = mAgentWeb.getWebCreator().getWebView();
+        mWebView.setOnLongClickListener(v -> {
+            WebView.HitTestResult hitTestResult = mWebView.getHitTestResult();
+            if (hitTestResult == null) {
+                return false;
             }
+            if (!mIsShowTitle) {
+                showActionSheet();
+            }
+            LoggerManager.d("onLongClick:hitTestResult-Type:" + hitTestResult.getType() + ";Extra:" + hitTestResult.getExtra());
+            return true;
         });
     }
 
-//    @Override
-//    protected boolean isSwipeBackEnable() {
-//        return super.isSwipeBackEnable() && !(RomUtil.isEMUI() && NavigationBarUtil.hasSoftKeys(getWindowManager()));
-//    }
+
 
     @Override
     public void initView(Bundle savedInstanceState) {
